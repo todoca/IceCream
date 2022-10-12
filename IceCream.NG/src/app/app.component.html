@@ -1,0 +1,22 @@
+<table class="table-fixed hover:table-fixed">
+  <thead>
+    <th>Image</th>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Flavour</th>
+    <th>Brand</th>
+    <th>Place</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let iceCream of iceCreams">
+      <td><img  src={{iceCream.image}} class='p-5 w-60'/></td>
+      <td class="p-4">{{iceCream.name}}</td>
+      <td>{{iceCream.description}}</td>
+      <td class="text-center">{{iceCream.price}}</td>
+      <td>{{iceCream.flavour}}</td>
+      <td>{{iceCream.brand}}</td>
+      <td>{{iceCream.place}}</td>
+    </tr>
+  </tbody>
+</table>
