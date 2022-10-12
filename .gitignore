@@ -396,3 +396,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/IceCream.API/IceCream.Api/appsettings.json
+/IceCream.API/IceCream.Api/appsettings.Development.json
