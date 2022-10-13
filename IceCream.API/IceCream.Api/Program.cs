@@ -1,9 +1,11 @@
+using IceCream.Application.Extensions;
 using IceCream.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 var Configuration = builder.Configuration;
 
 builder.Services.AddInjectionInfrastructure(Configuration);
+builder.Services.AddInjectionApplication(Configuration);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
