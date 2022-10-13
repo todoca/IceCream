@@ -15,16 +15,16 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ImageId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Image = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreateUser = table.Column<int>(type: "int", nullable: false),
                     UpdateUser = table.Column<int>(type: "int", nullable: false),
                     DeleteUser = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     State = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -46,8 +46,8 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     UpdateUser = table.Column<int>(type: "int", nullable: false),
                     DeleteUser = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     State = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -73,8 +73,8 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     UpdateUser = table.Column<int>(type: "int", nullable: false),
                     DeleteUser = table.Column<int>(type: "int", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     State = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

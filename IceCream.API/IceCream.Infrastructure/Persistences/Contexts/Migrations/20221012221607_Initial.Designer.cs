@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
 {
     [DbContext(typeof(IceCreamContext))]
-    [Migration("20221012205726_Initial")]
+    [Migration("20221012221607_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,14 +39,13 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<int>("CreateUser")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DeleteDate")
+                    b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DeleteUser")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Image")
@@ -57,14 +56,13 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UpdateUser")
@@ -96,7 +94,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<int>("CreateUser")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DeleteDate")
+                    b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DeleteUser")
@@ -126,7 +124,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UpdateUser")
@@ -159,7 +157,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<int>("CreateUser")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DeleteDate")
+                    b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DeleteUser")
@@ -182,7 +180,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<int>("State")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("UpdateDate")
+                    b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("UpdateUser")
@@ -196,7 +194,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
             modelBuilder.Entity("IceCream.Domain.Entities.IceCream", b =>
                 {
                     b.HasOne("IceCream.Domain.Entities.Category", "Category")
-                        .WithMany()
+                        .WithMany("IceCreams")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -210,6 +208,11 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Provider");
+                });
+
+            modelBuilder.Entity("IceCream.Domain.Entities.Category", b =>
+                {
+                    b.Navigation("IceCreams");
                 });
 #pragma warning restore 612, 618
         }

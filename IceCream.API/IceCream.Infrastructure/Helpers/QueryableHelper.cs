@@ -1,4 +1,4 @@
-﻿using IceCream.Infrastructure.Commons.Bases;
+﻿using IceCream.Infrastructure.Commons.Bases.Request;
 
 namespace IceCream.Infrastructure.Helpers;
 

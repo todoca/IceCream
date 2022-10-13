@@ -1,4 +1,6 @@
 ﻿using IceCream.Infrastructure.Persistences.Contexts;
+using IceCream.Infrastructure.Persistences.Interfaces;
+using IceCream.Infrastructure.Persistences.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +17,7 @@ public static class InjectionExtensions
             options => options.UseSqlServer(configuration.GetConnectionString("IceCreamConnection"),
             b => b.MigrationsAssembly(assembly)), ServiceLifetime.Transient);
 
+        services.AddTransient<IUnitOfWork, UnitOfWork>();
         return services;
     }
 }

@@ -1,4 +1,4 @@
-﻿using IceCream.Infrastructure.Commons.Bases;
+﻿using IceCream.Infrastructure.Commons.Bases.Request;
 using IceCream.Infrastructure.Helpers;
 using IceCream.Infrastructure.Persistences.Interfaces;
 using System.Linq.Dynamic.Core;
