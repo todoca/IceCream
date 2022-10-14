@@ -14,8 +14,10 @@ public static class InjectionExtensions
     {
         var assembly = typeof(IceCreamContext).Assembly.FullName;
         services.AddDbContext<IceCreamContext>(
-            options => options.UseSqlServer(configuration.GetConnectionString("IceCreamConnection"),
-            b => b.MigrationsAssembly(assembly)), ServiceLifetime.Transient);
+            options => options.UseInMemoryDatabase("IceCream"));
+      //  services.AddDbContext<IceCreamContext>(
+      //options => options.UseSqlServer(configuration.GetConnectionString("IceCreamConnection"),
+      //b => b.MigrationsAssembly(assembly)), ServiceLifetime.Transient);
 
         services.AddTransient<IUnitOfWork, UnitOfWork>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); 

@@ -42,5 +42,29 @@ public class CategoryApplicationTest
         //Assert
         Assert.AreEqual(expected, result);
     }
+    [TestMethod]
+    public async Task RegisterCategory_WhenSendingCorrectValues_RegisteredSuccessfully()
+    {
+        using var scope = _scopeFactory?.CreateScope();
+        var context = scope?.ServiceProvider.GetService<ICategoryApplication>();
+
+        //Arrange
+        var name = "Barquilla";
+        var description = "Cookies with shape of cone an ice cream";
+        var state = 1;
+        var expected = ReplyMessage.MESSAGE_SAVE;
+
+        //Act
+        var result = await context!.RegisterCategory(new CategoryRequestDto()
+        {
+            Name = name,
+            Description = description,
+            State = state
+        });
+        var current = result.Message;
+
+        //Assert
+        Assert.AreEqual(expected, result);
+    }
 
 }

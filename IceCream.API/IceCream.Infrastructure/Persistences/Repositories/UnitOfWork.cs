@@ -14,18 +14,12 @@ public class UnitOfWork : IUnitOfWork
         Category = new CategoryRepository(context);
     }
 
-    public void Dispose()
-    {
-        _context.Dispose();
-    }
+    public void Dispose() => _context.Dispose();
 
-    public async void SaveChanges()
-    {
-        await _context.SaveChangesAsync();
-    }
+    public IceCreamContext Get_context() => _context;
 
-    public Task SaveChangesAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public void SaveChanges() => _context.SaveChanges();
+
+    public async Task SaveChangesAsync() => await _context.SaveChangesAsync();
+
 }
