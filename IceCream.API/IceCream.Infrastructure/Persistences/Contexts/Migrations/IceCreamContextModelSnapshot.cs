@@ -34,13 +34,13 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreateUser")
+                    b.Property<int?>("CreateUser")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DeleteUser")
+                    b.Property<int?>("DeleteUser")
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -63,7 +63,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdateUser")
+                    b.Property<int?>("UpdateUser")
                         .HasColumnType("int");
 
                     b.HasKey("CategoryId");
@@ -89,13 +89,13 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreateUser")
+                    b.Property<int?>("CreateUser")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DeleteUser")
+                    b.Property<int?>("DeleteUser")
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
@@ -125,7 +125,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdateUser")
+                    b.Property<int?>("UpdateUser")
                         .HasColumnType("int");
 
                     b.HasKey("IceCreamId");
@@ -152,13 +152,13 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreateUser")
+                    b.Property<int?>("CreateUser")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("DeleteDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DeleteUser")
+                    b.Property<int?>("DeleteUser")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -181,7 +181,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts.Migrations
                     b.Property<DateTime?>("UpdateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdateUser")
+                    b.Property<int?>("UpdateUser")
                         .HasColumnType("int");
 
                     b.HasKey("ProviderId");

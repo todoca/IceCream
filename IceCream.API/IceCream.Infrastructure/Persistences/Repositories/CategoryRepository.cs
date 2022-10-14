@@ -98,7 +98,7 @@ public class CategoryRepository : GenericRepository<Category>, ICategoryReposito
         category!.DeleteUser = 1;
         category.DeleteDate = DateTime.Now;
 
-        _context.Remove(category);
+        _context.Update(category);
         var recordsAffected = await _context.SaveChangesAsync();
         return recordsAffected > 0;
     }
