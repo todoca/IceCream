@@ -4,6 +4,7 @@ using IceCream.Infrastructure.Persistences.Contexts;
 
 var builder = WebApplication.CreateBuilder(args);
 var Configuration = builder.Configuration;
+var Cors = "Cors";
 
 builder.Services.AddInjectionInfrastructure(Configuration);
 builder.Services.AddInjectionApplication(Configuration);
@@ -11,8 +12,19 @@ builder.Services.AddInjectionApplication(Configuration);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: Cors,
+        builder =>
+        {
+            builder.WithOrigins("*");
+            builder.AllowAnyMethod();
+            builder.AllowAnyHeader();
+        });
+});
 
 var app = builder.Build();
+app.UseCors(Cors);
 IServiceScope scope = app.Services.CreateScope();
 IceCreamContext tlContext = scope.ServiceProvider.GetRequiredService<IceCreamContext>();
 tlContext.Database.EnsureDeleted();
@@ -34,7 +46,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-    
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
