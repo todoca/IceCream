@@ -12,6 +12,7 @@ public class CategoryMappingProfile : Profile
 	public CategoryMappingProfile()
 	{
 		CreateMap<Category, CategoryResponseDto>()
+			.ForMember(x =>x.CategoryId, x =>x.MapFrom(y=>y.Id))
 			.ForMember(x => x.StateCategory, x => x.MapFrom(y => y.State.Equals((int)StateTypes.Active) ?
 			"Active" : "Inactive")).ReverseMap();
 
@@ -20,6 +21,8 @@ public class CategoryMappingProfile : Profile
 
 		CreateMap<CategoryRequestDto, Category>();
 
-		CreateMap<Category, CategorySelectResponseDto>();
+		CreateMap<Category, CategorySelectResponseDto>()
+			.ForMember(x =>x.CategoryId, x =>x.MapFrom(y=>y.Id))
+            .ReverseMap();
 	}
 }

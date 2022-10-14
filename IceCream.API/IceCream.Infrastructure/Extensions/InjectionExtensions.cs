@@ -18,6 +18,7 @@ public static class InjectionExtensions
             b => b.MigrationsAssembly(assembly)), ServiceLifetime.Transient);
 
         services.AddTransient<IUnitOfWork, UnitOfWork>();
+        services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>)); 
         services.AddTransient<SeedDb>();
         return services;
     }
