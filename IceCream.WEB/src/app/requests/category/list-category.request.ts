@@ -6,7 +6,7 @@ export class ListCategoryRequest extends params {
     numPage: number,
     order: "desc" | "asc",
     sort: string,
-    records: 10 | 20 | 50,
+    records: 5 | 10 | 20,
     numFilter: number = 0,
     textFilter: string = "",
     stateFilter: number = null,

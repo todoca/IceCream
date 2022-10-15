@@ -51,7 +51,7 @@
 
         <mat-menu #menu="matMenu">
             <div *ngFor="let option of searchOptions">
-                <ng-container *ngIf="option.hidden">
+                <ng-container *ngIf="!option.hidden">
                     <button mat-menu-item (click)="changeSelection(option)">{{option.label}}</button>
                 </ng-container>
 

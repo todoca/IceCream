@@ -4,6 +4,26 @@ import icCategory from "@iconify/icons-ic/twotone-category";
 import { ListTableMenu } from "src/app/commons/list-table-menu.interface";
 import icViewheadline from "@iconify/icons-ic/twotone-view-headline";
 import icLabel from "@iconify/icons-ic/twotone-label";
+import { GenericValidators } from "@shared/validators/generic-validators";
+
+const searchOptions = [
+  {
+    label: "Name",
+    value: 1,
+    placeHolder: "Search by name...",
+    validation: [GenericValidators.defaultName],
+    validation_desc: "Only letters are allowed in this search",
+    min_length: 2,
+  },
+  {
+    label: "Description",
+    value: 2,
+    placeHolder: "Search by description",
+    validation: [GenericValidators.defaultDescription],
+    validation_desc: "Only letters and numbers are allowed in this search",
+    min_length: 2,
+  },
+];
 
 const menuItems: ListTableMenu[] = [
   {
@@ -16,7 +36,7 @@ const menuItems: ListTableMenu[] = [
     type: "link",
     id: "Active",
     icon: icLabel,
-    label: "Ative",
+    label: "Active",
     value: 1,
     classes: {
       icon: "text-green",
@@ -112,6 +132,7 @@ export const componentSettings = {
   //SEARCH FILTERS
   menuItems: menuItems,
   filters: filters,
+  searchOptions: searchOptions,
   columnsFilter: tableColumns.map((column) => {
     return {
       label: column.label,

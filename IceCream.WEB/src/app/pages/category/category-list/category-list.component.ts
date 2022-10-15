@@ -47,6 +47,12 @@ export class CategoryListComponent implements OnInit {
     this.formatGetInputs();
   }
 
+  search(data: any) {
+    this.component.filters.numFilter = data.searchValue;
+    this.component.filters.textFilter = data.searchString;
+    this.formatGetInputs();
+  }
+
   formatGetInputs() {
     let inputs = {
       numFilter: 0,
@@ -55,6 +61,11 @@ export class CategoryListComponent implements OnInit {
       startDate: null,
       endDate: null,
     };
+
+    if (this.component.filters.numFilter != "") {
+      inputs.numFilter = this.component.filters.numFilter;
+      inputs.textFilter = this.component.filters.textFilter;
+    }
 
     if (this.component.filters.stateFilter != null) {
       inputs.stateFilter = this.component.filters.stateFilter;
