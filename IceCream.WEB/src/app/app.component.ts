@@ -6,6 +6,7 @@ import { Platform } from "@angular/cdk/platform";
 import { NavigationService } from "../@vex/services/navigation.service";
 
 import icDashboard from "@iconify/icons-ic/twotone-dashboard";
+import icCategory from "@iconify/icons-ic/twotone-category";
 import { ActivatedRoute } from "@angular/router";
 import { filter, map } from "rxjs/operators";
 import { coerceBooleanProperty } from "@angular/cdk/coercion";
@@ -77,6 +78,12 @@ export class AppComponent {
         label: "Ice Cream List",
         route: "estadisticas",
         icon: icDashboard,
+      },
+      {
+        type: "link",
+        label: "Categories",
+        route: "categories",
+        icon: icCategory,
       },
     ];
   }
