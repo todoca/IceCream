@@ -25,10 +25,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 app.UseCors(Cors);
-IServiceScope scope = app.Services.CreateScope();
-IceCreamContext tlContext = scope.ServiceProvider.GetRequiredService<IceCreamContext>();
-tlContext.Database.EnsureDeleted();
-tlContext.Database.EnsureCreated();
 SeedData(app);
 
 static void SeedData(WebApplication app)
