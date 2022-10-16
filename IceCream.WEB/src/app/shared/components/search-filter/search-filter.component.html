@@ -1,7 +1,7 @@
 <form class="text-black">
     <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
         <h2 class="headline m-0 text-xl text-accent" fxFlex="auto">
-            Filtros de Búsqueda
+            Search Filter
         </h2>
         <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
             <mat-icon [icIcon]="icClose"></mat-icon>
@@ -13,18 +13,18 @@
         <mat-form-field appearance="outline" fxFlex="100">
             <mat-label>{{labelDateOne}}</mat-label>
             <mat-date-range-input [rangePicker]="dateOnepicker">
-                <input matStartDate placeholder="Fecha Inicio" formControlName="startDate">
-                <input matEndDate placeholder="Fecha Fin" formControlName="endDate">
+                <input matStartDate placeholder="Initial Date" formControlName="startDate">
+                <input matEndDate placeholder="End Date" formControlName="endDate">
             </mat-date-range-input>
             <mat-datepicker-toggle matSuffix [for]="dateOnepicker"></mat-datepicker-toggle>
             <mat-date-range-picker #dateOnepicker></mat-date-range-picker>
             <mat-error
                 *ngIf="dateOne.get('startDate').hasError('required') && dateOne.get('endDate').hasError('required')">
-                {{labelDateOne}} es requirida.
+                {{labelDateOne}} is required.
             </mat-error>
             <mat-error
                 *ngIf="!dateOne.get('startDate').hasError('required') && dateOne.get('endDate').hasError('required') ">
-                {{labelDateOne}} Fin es requirida.
+                {{labelDateOne}} end is required.
             </mat-error>
         </mat-form-field>
 
@@ -35,8 +35,8 @@
         <mat-form-field appearance="outline" fxFlex="100">
             <mat-label>{{labelDateTwo}}</mat-label>
             <mat-date-range-input [rangePicker]="dateTwopicker">
-                <input matStartDate placeholder="Fecha Inicio" formControlName="startDateTwo">
-                <input matEndDate placeholder="Fecha Fin" formControlName="endDateTwo">
+                <input matStartDate placeholder="Inital Date" formControlName="startDateTwo">
+                <input matEndDate placeholder="End Date" formControlName="endDateTwo">
             </mat-date-range-input>
             <mat-datepicker-toggle matSuffix [for]="dateTwopicker"></mat-datepicker-toggle>
             <mat-date-range-picker #dateTwopicker></mat-date-range-picker>
@@ -55,9 +55,9 @@
 
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close type="button" (click)="clear()"
-            [disabled]="dateOne.valid == true ||  dateTwo.valid == true ? false: true">LIMPIAR FILTROS</button>
+            [disabled]="dateOne.valid == true ||  dateTwo.valid == true ? false: true">CLEAN FILTER</button>
         <button color="accent" mat-raised-button type="button" (click)="submit()"
-            [disabled]="dateOne.valid == false &&  dateTwo.valid == false? true : false">FILTRAR</button>
+            [disabled]="dateOne.valid == false &&  dateTwo.valid == false? true : false">GO!</button>
     </mat-dialog-actions>
 
 </form>

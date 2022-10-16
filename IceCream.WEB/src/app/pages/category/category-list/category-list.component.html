@@ -12,6 +12,17 @@
                 (search)="search($event)"
                 >
                 </vex-search-box>
+                <div>
+                    <button
+                    mat-icon-button
+                    matTooltip="Dates Filter"
+                    class="ml-8 text-primary-contrast"
+                    [ngClass]="{'extra-filter-active':component.filters_dates_active}"
+                    (click)="datesFilterOpen()"
+                    >
+                    <mat-icon [icIcon]="component.icCalendarMonth"></mat-icon>
+                    </button>
+                </div>
             </div>
         </div>
     </div>

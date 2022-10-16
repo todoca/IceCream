@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { MatDialog } from "@angular/material/dialog";
+import { DatesFilter } from "@shared/functions/actions";
 import { CustomTitleService } from "@shared/services/custom-title.service";
 import { fadeInRight400ms } from "src/@vex/animations/fade-in-right.animation";
 import { scaleIn400ms } from "src/@vex/animations/scale-in.animation";
@@ -18,7 +20,8 @@ export class CategoryListComponent implements OnInit {
 
   constructor(
     customTitle: CustomTitleService,
-    public _categoryService: CategoryService
+    public _categoryService: CategoryService,
+    public _dialog: MatDialog
   ) {
     customTitle.set("Categories");
   }
@@ -53,6 +56,10 @@ export class CategoryListComponent implements OnInit {
     this.formatGetInputs();
   }
 
+  datesFilterOpen() {
+    DatesFilter(this);
+  }
+
   formatGetInputs() {
     let inputs = {
       numFilter: 0,
@@ -70,6 +77,15 @@ export class CategoryListComponent implements OnInit {
     if (this.component.filters.stateFilter != null) {
       inputs.stateFilter = this.component.filters.stateFilter;
     }
+
+    if (
+      this.component.filters.startDate != "" &&
+      this.component.filters.endDate != ""
+    ) {
+      inputs.startDate = this.component.filters.startDate;
+      inputs.endDate = this.component.filters.endDate;
+    }
+
     this.component.getInputs = inputs;
   }
 

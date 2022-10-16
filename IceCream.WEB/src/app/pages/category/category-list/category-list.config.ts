@@ -4,6 +4,7 @@ import icCategory from "@iconify/icons-ic/twotone-category";
 import { ListTableMenu } from "src/app/commons/list-table-menu.interface";
 import icViewheadline from "@iconify/icons-ic/twotone-view-headline";
 import icLabel from "@iconify/icons-ic/twotone-label";
+import icCalendarMonth from "@iconify/icons-ic/twotone-calendar-today";
 import { GenericValidators } from "@shared/validators/generic-validators";
 
 const searchOptions = [
@@ -120,6 +121,7 @@ const inputs = {
 export const componentSettings = {
   //Icon
   icCategory: icCategory,
+  icCalendarMonth: icCalendarMonth,
   //LAYOUT SETTINGS
   menuOpen: false,
   //Table Settings
@@ -132,7 +134,9 @@ export const componentSettings = {
   //SEARCH FILTERS
   menuItems: menuItems,
   filters: filters,
+  dateFilterArray: ["Create Date"],
   searchOptions: searchOptions,
+  filters_dates_active: false,
   columnsFilter: tableColumns.map((column) => {
     return {
       label: column.label,
