@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { DatesFilter } from "@shared/functions/actions";
 import { CustomTitleService } from "@shared/services/custom-title.service";
 import { fadeInRight400ms } from "src/@vex/animations/fade-in-right.animation";
@@ -7,6 +7,7 @@ import { scaleIn400ms } from "src/@vex/animations/scale-in.animation";
 import { stagger40ms } from "src/@vex/animations/stagger.animation";
 import { CategoryApi } from "src/app/responses/category/category.response";
 import { CategoryService } from "src/app/services/category.service";
+import Swal from "sweetalert2";
 import { CategoryManageComponent } from "../category-manage/category-manage.component";
 import { componentSettings } from "./category-list.config";
 
@@ -31,20 +32,6 @@ export class CategoryListComponent implements OnInit {
     this.component = componentSettings;
   }
 
-  rowClick(e: any) {
-    let action = e.action;
-    let category = e.row;
-
-    switch (action) {
-      case "edit":
-        this.CategoryEdit(category);
-        break;
-      case "remove":
-        this.CategoryRemove(category);
-        break;
-    }
-    return false;
-  }
   setData(data: any = null) {
     this.component.filters.stateFilter = data.value;
     this.component.menuOpen = false;
@@ -99,6 +86,53 @@ export class CategoryListComponent implements OnInit {
       .afterClosed()
       .subscribe((res) => this.formatGetInputs());
   }
-  CategoryEdit(row: CategoryApi) {}
-  CategoryRemove(category: any) {}
+
+  rowClick(e: any) {
+    let action = e.action;
+    let category = e.row;
+
+    switch (action) {
+      case "edit":
+        console.log("clicked");
+        this.CategoryEdit(category);
+        break;
+      case "delete":
+        console.log("clicked");
+        this.CategoryRemove(category);
+        break;
+    }
+    return false;
+  }
+
+  CategoryEdit(row: CategoryApi) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.data = row;
+
+    let dialogRef = this._dialog.open(CategoryManageComponent, {
+      data: dialogConfig,
+      disableClose: true,
+      width: "400px",
+    });
+    dialogRef.afterClosed().subscribe((res) => this.formatGetInputs());
+  }
+  CategoryRemove(category: any) {
+    Swal.fire({
+      title: `Do you really want to delete the category ${category.name}?`,
+      text: "will be permanently deleted!",
+      icon: "warning",
+      showCancelButton: true,
+      focusCancel: true,
+      confirmButtonColor: "rgb(210,155,253)",
+      cancelButtonColor: "rgb(79,109,200)",
+      confirmButtonText: "Yes, delete",
+      cancelButtonText: "Cancel",
+      width: "430px",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this._categoryService
+          .CategoryRemove(category.categoryId)
+          .subscribe(() => this.formatGetInputs());
+      }
+    });
+  }
 }
