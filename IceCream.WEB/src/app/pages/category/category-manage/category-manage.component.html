@@ -1,0 +1,44 @@
+<form [formGroup]="form" (ngSubmit)="CategorySave()">
+    <div fxLayout="row" fxLayoutAlign="start center" mat-dialog-title>
+        <h2 class="headline m-0 text-xl text-accent" fxFlex="auto">
+            <strong>Category Managment</strong>
+        </h2>
+        <button class="text-secondary" mat-dialog-close mat-icon-button type="button">
+            <mat-icon [icIcon]="icClose"></mat-icon>
+        </button>
+    </div>
+    <mat-dialog-content>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Name
+                </mat-label>
+                <input matInput formControlName="name">
+                <mat-error *ngIf="form.get('name').hasError('required')"> Field Name is required.</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Description
+                </mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutGap="16px">
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>State
+                </mat-label>
+                <mat-select formControlName="state">
+                    <mat-option *ngFor="let state of configs.statesSelect" [value]="state.value">
+                        {{state.label}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.get('state').hasError('required')"> Field State is required.</mat-error>
+            </mat-form-field>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close type="button">CANCEL</button>
+        <button color="purple" class="bg-accent text-accent-contrast" mat-button type="submit" [disabled]="!form.valid">SAVE</button>
+
+    </mat-dialog-actions>
+</form>

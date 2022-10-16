@@ -7,6 +7,8 @@ import { environment as env } from "src/environments/environment";
 import { endpoint } from "@shared/apis/endpoint";
 import { ListCategoryRequest } from "../requests/category/list-category.request";
 import { map } from "rxjs/operators";
+import { CategoryRequest } from "../requests/category/category.request";
+import { ApiResponse } from "../commons/response.interface";
 @Injectable({
   providedIn: "root",
 })
@@ -44,5 +46,12 @@ export class CategoryService {
         return data;
       })
     );
+  }
+
+  CategoryRegister(category: CategoryRequest): Observable<ApiResponse> {
+    const requestUrl = `${env.api}${endpoint.CATEGORY_REGISTER}`;
+    return this._http
+      .post(requestUrl, category)
+      .pipe(map((resp: ApiResponse) => resp));
   }
 }

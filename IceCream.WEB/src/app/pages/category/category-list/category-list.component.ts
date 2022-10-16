@@ -7,6 +7,7 @@ import { scaleIn400ms } from "src/@vex/animations/scale-in.animation";
 import { stagger40ms } from "src/@vex/animations/stagger.animation";
 import { CategoryApi } from "src/app/responses/category/category.response";
 import { CategoryService } from "src/app/services/category.service";
+import { CategoryManageComponent } from "../category-manage/category-manage.component";
 import { componentSettings } from "./category-list.config";
 
 @Component({
@@ -89,6 +90,15 @@ export class CategoryListComponent implements OnInit {
     this.component.getInputs = inputs;
   }
 
+  openDialogRegister() {
+    this._dialog
+      .open(CategoryManageComponent, {
+        disableClose: true,
+        width: "400px",
+      })
+      .afterClosed()
+      .subscribe((res) => this.formatGetInputs());
+  }
   CategoryEdit(row: CategoryApi) {}
   CategoryRemove(category: any) {}
 }
