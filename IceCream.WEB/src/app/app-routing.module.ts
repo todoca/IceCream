@@ -6,7 +6,7 @@ import { NotFoundComponent } from "./pages/not-found/not-found.component";
 
 const childrenRoutes: VexRoutes = [
   {
-    path: "estadisticas",
+    path: "home",
     loadChildren: () =>
       import("./pages/dashboard/dashboard.module").then(
         (m) => m.DashboardModule
@@ -32,7 +32,7 @@ const childrenRoutes: VexRoutes = [
 const routes: VexRoutes = [
   {
     path: "",
-    redirectTo: "estadisticas",
+    redirectTo: "categories",
     pathMatch: "full",
   },
   {

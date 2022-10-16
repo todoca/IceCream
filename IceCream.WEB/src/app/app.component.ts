@@ -75,15 +75,15 @@ export class AppComponent {
     this.navigationService.items = [
       {
         type: "link",
-        label: "Ice Cream List",
-        route: "estadisticas",
-        icon: icDashboard,
-      },
-      {
-        type: "link",
         label: "Categories",
         route: "categories",
         icon: icCategory,
+      },
+      {
+        type: "link",
+        label: "Ice Cream List",
+        route: "home",
+        icon: icDashboard,
       },
     ];
   }
