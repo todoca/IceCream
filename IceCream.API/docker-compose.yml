@@ -1,0 +1,33 @@
+version: '3.4'
+
+networks:
+  icecreamapp:
+
+services:
+  icecreamdb:
+    container_name: icecream-db
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=icecream@12345#
+    networks:
+      - icecreamapp
+  icecream.api:
+    container_name: icecream-api
+    image: ${DOCKER_REGISTRY-}icecreamapi
+    build:
+      context: .
+      dockerfile: IceCream.Api/Dockerfile
+    ports:
+      - "8001:443"
+    depends_on:
+      - icecreamdb
+    environment:
+      - DB_CONNECTION_STRING=Server=icecreamdb;Database=IceCream;User=sa;Password=icecream@12345#
+      - DB_HOST=icecreamdb
+      - DB_NAME=IceCream
+      - DB_PASSWORD=icecream@12345#
+    networks:
+      - icecreamapp

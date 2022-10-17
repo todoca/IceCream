@@ -21,7 +21,7 @@ export class DownloadXslxService {
 
     return this.http.post<any>(`${env.api}${url}`, params).pipe(
       map((data: any) => {
-        console.log(data)
+        console.log(data);
         return data;
       })
     );
@@ -43,7 +43,7 @@ export class DownloadXslxService {
 
     /* save to file */
 
-    XLSX.writeFile(wb, env.filenameCsv + filename + "-" + time + ".xlsx");
+    // XLSX.writeFile(wb, env.filenameCsv + filename + "-" + time + ".xlsx");
   }
 
   formatArray(data: any, columnsFilter: any) {

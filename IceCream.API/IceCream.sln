@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4C219771-6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceCream.Domain", "IceCream.Domain\IceCream.Domain.csproj", "{B1C8929D-155C-4F62-825A-5BE8CE7EDD1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Infrastructure", "IceCream.Infrastructure\IceCream.Infrastructure.csproj", "{F56BBAD6-2698-4129-8D5D-F95891F2F6A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceCream.Infrastructure", "IceCream.Infrastructure\IceCream.Infrastructure.csproj", "{F56BBAD6-2698-4129-8D5D-F95891F2F6A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Application", "IceCream.Application\IceCream.Application.csproj", "{B83E437C-EFFC-44EF-8301-9DC3E2865D6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceCream.Application", "IceCream.Application\IceCream.Application.csproj", "{B83E437C-EFFC-44EF-8301-9DC3E2865D6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Api", "IceCream.Api\IceCream.Api.csproj", "{E8567DF0-1F20-4CC9-A280-2E1C5FD9943E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceCream.Api", "IceCream.Api\IceCream.Api.csproj", "{E8567DF0-1F20-4CC9-A280-2E1C5FD9943E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Utilities", "IceCream.Utilities\IceCream.Utilities.csproj", "{FEC040F6-6A7C-4534-ADC3-DE2797B84FEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceCream.Utilities", "IceCream.Utilities\IceCream.Utilities.csproj", "{FEC040F6-6A7C-4534-ADC3-DE2797B84FEA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IceCream.Test", "IceCream.Test\IceCream.Test.csproj", "{C93C9759-F539-4DCF-826A-6A80340B7D95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IceCream.Test", "IceCream.Test\IceCream.Test.csproj", "{C93C9759-F539-4DCF-826A-6A80340B7D95}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{67996EB5-813A-48EF-8764-F2474AF78C63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{C93C9759-F539-4DCF-826A-6A80340B7D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C93C9759-F539-4DCF-826A-6A80340B7D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C93C9759-F539-4DCF-826A-6A80340B7D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67996EB5-813A-48EF-8764-F2474AF78C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67996EB5-813A-48EF-8764-F2474AF78C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67996EB5-813A-48EF-8764-F2474AF78C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67996EB5-813A-48EF-8764-F2474AF78C63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
