@@ -11,10 +11,7 @@ This demo application includes the following:
 
 4. The Angular Application also should have a overview with an grid, Use of vex template and custom grid design with search filters by name, description, if it is active and creation date range
 
-5. The Application is startable with a docker-compose and checkable in docker.hub, the images and both the Api and the angular application have the configuration of your docker-compose.yml
+5. The Application is startable with a docker-compose and checkable in docker.hub, the images and both the Api and the angular application have the configuration of your docker-compose.yml https://hub.docker.com/u/todoca
 
 6. the repository has the development progress history of the application.
-
-
-
 
