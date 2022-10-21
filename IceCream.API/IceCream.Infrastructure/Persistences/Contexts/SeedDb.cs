@@ -24,7 +24,7 @@ namespace IceCream.Infrastructure.Persistences.Contexts
                     Name = "Plombir",
                     Description = "is considered the richest of ice-creams. They are often considered to be the tastiest, too.",
                     CreateDate = DateTime.Now,
-                    CreateUser = 1,
+                    CreateUser = 1,  
                     Image = "/assets/images/icecream6.png",
                     State = 1,
 
